@@ -123,7 +123,10 @@ namespace Tarea_1__Boris_Hernandez_
 
             static void Cambio()
             {
-
+                string n_pass;
+                
+                Console.WriteLine("Ingrese su nueva contraseña: ");
+                n_pass = Console.ReadLine();
             }
         }
     }
