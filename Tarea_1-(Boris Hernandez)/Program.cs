@@ -72,6 +72,8 @@ namespace Tarea_1__Boris_Hernandez_
                 Cambio(pass,nueva_pass);
             }
 
+            //*********************************METODOS*****************************************************
+
             static int contraseña(string V_pass, string V_user)
             {
                 int verif;
