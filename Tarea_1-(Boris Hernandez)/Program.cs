@@ -9,11 +9,18 @@ namespace Tarea_1__Boris_Hernandez_
             // El usuario tendra un saldo de $100 en su cuenta
             float saldo;
             saldo = 100;
-            
-            //El usuario tendra 3 intentos
-            //usuario: user00 contra: contra123
-            contraseña();
 
+            //usuario: user00 contra: contra123
+            int r;
+            string pass, user;
+
+            do
+            {
+                Console.Write("DIGITE USUARIO: "); user = Console.ReadLine();
+                Console.Write("DIGITE CLAVE: "); pass = Console.ReadLine();
+                r = contraseña(pass, user);
+            //aumentara el numero de intentos si no es correcta la contraseña
+            } while (r == 0);
 
             int opcion = 0;
             string valor = "";
@@ -56,35 +63,31 @@ namespace Tarea_1__Boris_Hernandez_
             // Checamos por el cambio de contraseña
             if (opcion == 4)
             {
-                Cambio();
+                // Variables necesarias
+                string nueva_pass;
+                // Pedimos los valores
+                Console.WriteLine("Ingrese su nueva contraseña: ");
+                nueva_pass = Console.ReadLine();
+                // Invocamos el resultado
+                Cambio(pass,nueva_pass);
             }
 
-            static void contraseña()
+            static int contraseña(string V_pass, string V_user)
             {
-                int intentos = 0, verif = 0;
-                string pass, user;
-                do
-                {
-                    Console.Write("DIGITE USUARIO: "); user = Console.ReadLine();
-                    Console.Write("DIGITE CLAVE: "); pass = Console.ReadLine();
-                    if ((pass == "contra123") && (user == "user00"))
+                int verif;
+                    if ((V_pass == "contra123") && (V_user == "user00"))
                     {
+                        Console.WriteLine("BIENVENIDO ");
+                        Console.WriteLine();
                         verif = 1;
                     }
                     else
                     {
-                        intentos++;
+                        Console.WriteLine("USUARIO O CONTRASEÑA INCORRECTOS");
+                        Console.WriteLine();
+                        verif = 0;
                     }
-                    //aumentara el numero de intentos si no es correcta la contraseña
-                } while (((intentos < 3) & (verif == 0)));
-                if (verif == 1)
-                {
-                    Console.WriteLine("BIENVENIDO ");
-                }
-                else
-                {
-                    Console.WriteLine("OPORTUNIDADES TERMINADAS");
-                }
+                return verif;
             }
 
             static void Deposito(float ingreso, float existente)
@@ -114,12 +117,10 @@ namespace Tarea_1__Boris_Hernandez_
                 Console.WriteLine("Su saldo es de: " + resultado);
             }
 
-            static void Cambio()
+            static void Cambio(string contra, string nueva)
             {
-                string n_pass;
-                
-                Console.WriteLine("Ingrese su nueva contraseña: ");
-                n_pass = Console.ReadLine();
+                contra = nueva;
+                Console.WriteLine("su nueva contraseña es: " + contra);
             }
         }
     }
