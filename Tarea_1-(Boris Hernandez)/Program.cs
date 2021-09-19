@@ -7,8 +7,8 @@ namespace Tarea_1__Boris_Hernandez_
         static void Main(string[] args)
         {
             // El usuario tendra un saldo de $100 en su cuenta
-            float dinero;
-            dinero = 100;
+            float saldo;
+            saldo = 100;
             
             //El usuario tendra 3 intentos
             //usuario: user00 contra: contra123
@@ -31,34 +31,27 @@ namespace Tarea_1__Boris_Hernandez_
             {
                 // Variables necesarias
                 float a = 0;
-                float r = 0;
                 // Pedimos los valores
                 Console.WriteLine("Ingrese la cantidad de dinero que depositara: ");
                 a = float.Parse(Console.ReadLine());
                 // Invocamos el resultado
-                Deposito(a, dinero);
+                Deposito(a, saldo);
             }
             // Checamos por el retiro
             if (opcion == 2)
             {
                 // Variables necesarias
                 float a = 0;
-                float r = 0;
                 // Pedimos los valores
                 Console.WriteLine("Ingrese la cantidad de dinero que Retirara: ");
                 a = float.Parse(Console.ReadLine());
                 // Invocamos el resultado
-                Retiro(dinero,a);
+                Retiro(saldo,a);
             }
             // Checamos por la consulta de saldo
             if (opcion == 3)
             {
-                //variable para nuestro saldo
-                float saldo = 0;
-                //Invocamos y obtenemos el resultado
-                saldo = Consulta();
-                // Mostramos el saldo   
-                Console.WriteLine("Su saldo es de: " + saldo);
+                Consulta(saldo);
             }
             // Checamos por el cambio de contraseña
             if (opcion == 4)
@@ -114,12 +107,11 @@ namespace Tarea_1__Boris_Hernandez_
                 Console.WriteLine("Su saldo es ahora de " + r);
             }
 
-            static float Consulta()
+            static void Consulta(float dinero)
             {
-                float a = 300;
-                float s = 0;
-                s = a + 0;
-                return s;
+                float resultado;
+                resultado = dinero + 0;
+                Console.WriteLine("Su saldo es de: " + resultado);
             }
 
             static void Cambio()
