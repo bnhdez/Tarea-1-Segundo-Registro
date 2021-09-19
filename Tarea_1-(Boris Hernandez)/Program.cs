@@ -6,6 +6,10 @@ namespace Tarea_1__Boris_Hernandez_
     {
         static void Main(string[] args)
         {
+            // El usuario tendra un saldo de $100 en su cuenta
+            float dinero;
+            dinero = 100;
+            
             //El usuario tendra 3 intentos
             //usuario: user00 contra: contra123
             contraseña();
@@ -25,17 +29,26 @@ namespace Tarea_1__Boris_Hernandez_
             // Checamos por el deposito
             if (opcion == 1)
             {
-                Deposito();
+                // Variables necesarias
+                float a = 0;
+                float r = 0;
+                // Pedimos los valores
+                Console.WriteLine("Ingrese la cantidad de dinero que depositara: ");
+                a = float.Parse(Console.ReadLine());
+                // Invocamos el resultado
+                Deposito(a, dinero);
             }
             // Checamos por el retiro
             if (opcion == 2)
             {
-                // Variable para nuestro resultado
-                float resultado = 0;
-                // Invocamos y obtenemos el resultado
-                resultado = Retiro();
-                // Mostramos el resultado
-                Console.WriteLine("El resultado de la resta es {0}", resultado);
+                // Variables necesarias
+                float a = 0;
+                float r = 0;
+                // Pedimos los valores
+                Console.WriteLine("Ingrese la cantidad de dinero que Retirara: ");
+                a = float.Parse(Console.ReadLine());
+                // Invocamos el resultado
+                Retiro(dinero,a);
             }
             // Checamos por la consulta de saldo
             if (opcion == 3)
@@ -44,7 +57,7 @@ namespace Tarea_1__Boris_Hernandez_
                 float saldo = 0;
                 //Invocamos y obtenemos el resultado
                 saldo = Consulta();
-                // Mostramos el saldo
+                // Mostramos el saldo   
                 Console.WriteLine("Su saldo es de: " + saldo);
             }
             // Checamos por el cambio de contraseña
@@ -81,36 +94,24 @@ namespace Tarea_1__Boris_Hernandez_
                 }
             }
 
-            static void Deposito()
+            static void Deposito(float ingreso, float existente)
             {
                 // Variables necesarias
-                float a = 0;
-                float b = 0;
                 float r = 0;
-                // Pedimos los valores
-                b = 100;
-                Console.WriteLine("Ingrese la cantidad de dinero que depositara: ");
-                a = float.Parse(Console.ReadLine());
                 // Calculamos el resultado
-                r = a + b;
+                r = ingreso + existente;
                 // Mostramos el resultado
                 Console.WriteLine("Su saldo es ahora de "+ r);
             }
 
-            static float Retiro()
+            static void Retiro(float existente, float retiro)
             {
                 // Variables necesarias
-                float a = 0;
-                float b = 0;
                 float r = 0;
-                // Pedimos los valores
-                b = 100;
-                Console.WriteLine("Ingrese la cantidad de dinero que Retirara: ");
-                a = float.Parse(Console.ReadLine());
                 // Calculamos el resultado
-                r = a - b;
-                // Retornamos el resultado
-                return r;
+                r = existente - retiro;
+                // Mostramos el resultado
+                Console.WriteLine("Su saldo es ahora de " + r);
             }
 
             static float Consulta()
